@@ -167,5 +167,20 @@ public class SafeList<T>
     }
 }
 #endregion
+#region Q16: Contravariance ('in') Example
+/*
+ * Contravariance ('in'): Allows using a less derived (more base) type than originally specified.
+ * Rule: Input positions ONLY (method arguments).
+ */
+public interface IContravariantConsumer<in T>
+{
+    void Consume(T item);
+}
+
+public class ContravariantConsumer<T> : IContravariantConsumer<T>
+{
+    public void Consume(T item) => Console.WriteLine($"Consuming item: {item}");
+}
+#endregion
 #endregion
 #endregion

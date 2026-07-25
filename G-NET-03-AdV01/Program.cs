@@ -63,4 +63,27 @@ public class Pair<TKey, TValue>
     }
 }
 #endregion
+#region Q04: Generic Method & Swap<T>
+/*
+ * Generic Method: A method declared with its own type parameters independent of class-level types.
+ */
+public static class Utility
+{
+    public static void Swap<T>(ref T a, ref T b)
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    }
+
+    #region Q05: FindMax<T> Method
+    public static T FindMax<T>(T a, T b) where T : IComparable<T>
+    {
+        return a.CompareTo(b) > 0 ? a : b;
+    }
+    #endregion
+}
 #endregion
+
+#endregion
+

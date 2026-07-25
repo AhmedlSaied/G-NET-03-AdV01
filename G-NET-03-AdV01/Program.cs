@@ -267,5 +267,61 @@ public class Cache<TKey, TValue> where TKey : notnull
 }
 
 #endregion
+#region PROGRAM ENTRY POINT
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        #region EXECUTING Q02 - Q05 DEMOS
+        Console.WriteLine("========== Q02 - Q05 Demos ==========");
+        Container<int> intContainer = new Container<int>();
+        intContainer.Add(100);
+        Console.WriteLine($"Container Value: {intContainer.Get()}");
+
+        Pair<string, int> pair = new Pair<string, int>("Age", 25);
+        Console.WriteLine($"Pair: Key={pair.Key}, Value={pair.Value}");
+
+        int x = 10, y = 20;
+        Utility.Swap(ref x, ref y);
+        Console.WriteLine($"Swap Output: x={x}, y={y}");
+
+        int max = Utility.FindMax(45, 88);
+        Console.WriteLine($"FindMax Output: {max}\n");
+        #endregion
+
+        #region EXECUTING Q14 DEMO
+        Console.WriteLine("========== Q14: SafeList Demo ==========");
+        SafeList<string> safeList = new SafeList<string>();
+        safeList.Add("C# Advanced");
+        Console.WriteLine($"Index 0: {safeList.Get(0)}");
+        Console.WriteLine($"Index 5 (Invalid): '{safeList.Get(5)}' (default null)\n");
+        #endregion
+
+        #region EXECUTING Q18 DEMO
+        Console.WriteLine("========== Q18: Generic Static Isolation ==========");
+        GenericCounter<int>.Count = 5;
+        GenericCounter<string>.Count = 10;
+        Console.WriteLine($"Counter<int>: {GenericCounter<int>.Count}");
+        Console.WriteLine($"Counter<string>: {GenericCounter<string>.Count}\n");
+        #endregion
+
+        #region EXECUTING Q20: CACHE DEMO
+        Console.WriteLine("========== Q20: Cache<TKey, TValue> Demo ==========");
+        Cache<string, string> userCache = new Cache<string, string>();
+
+        userCache.Add("user_101", "Kayn", TimeSpan.FromSeconds(2));
+        Console.WriteLine($"Contains 'user_101': {userCache.Contains("user_101")}");
+        Console.WriteLine($"Get 'user_101': {userCache.Get("user_101")}");
+
+        Console.WriteLine("Waiting 3 seconds for expiration...");
+        System.Threading.Thread.Sleep(3000);
+
+        Console.WriteLine($"Contains 'user_101' after 3s: {userCache.Contains("user_101")}");
+        #endregion
+    }
+}
+
+    #endregion
 #endregion
 #endregion

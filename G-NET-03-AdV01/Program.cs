@@ -146,5 +146,26 @@ public class Repository<T> : IRepository<T> where T : BaseEntity, IEntity, new()
     public IEnumerable<T> GetAll() => _data;
 }
 #endregion
+#region PART 01 - QUESTIONS 13 TO 19: ADVANCED CONCEPTS
 
+#region Q13 & Q14: 'default' Keyword & SafeList<T>
+/*
+ * Q13: 'default' keyword returns null for reference types and 0/false/empty for value types.
+ */
+public class SafeList<T>
+{
+    private readonly List<T> _items = new();
+
+    public void Add(T item) => _items.Add(item);
+
+    public T Get(int index)
+    {
+        if (index >= 0 && index < _items.Count)
+            return _items[index];
+
+        return default!;
+    }
+}
+#endregion
+#endregion
 #endregion

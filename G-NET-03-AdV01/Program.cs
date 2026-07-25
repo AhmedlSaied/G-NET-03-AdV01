@@ -194,5 +194,15 @@ public class ContravariantConsumer<T> : IContravariantConsumer<T>
  * ---------------------------------------------------------------------------------------
  */
 #endregion
+#region Q18: Static Members in Generic Types
+/*
+ * Static members are NOT shared across different generic type instantiations.
+ * Class<int> and Class<string> maintain completely isolated static state variables.
+ */
+public class GenericCounter<T>
+{
+    public static int Count;
+}
+#endregion
 #endregion
 #endregion

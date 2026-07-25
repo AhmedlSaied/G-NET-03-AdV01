@@ -113,5 +113,12 @@ public class ReferenceWrapper<T> where T : class
     public T? Value { get; set; }
 }
 #endregion
+#region Q09: new() Constraint Example
+// Requires T to have a public parameterless constructor.
+public class EntityFactory<T> where T : new()
+{
+    public T CreateInstance() => new T();
+}
+#endregion
 
 #endregion

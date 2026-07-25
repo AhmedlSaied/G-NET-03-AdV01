@@ -182,5 +182,17 @@ public class ContravariantConsumer<T> : IContravariantConsumer<T>
     public void Consume(T item) => Console.WriteLine($"Consuming item: {item}");
 }
 #endregion
+#region Q17: Difference Between Covariance and Contravariance
+/*
+ * Q17: Difference Summary:
+ * ---------------------------------------------------------------------------------------
+ * Feature          | Covariance ('out')                 | Contravariance ('in')
+ * ---------------------------------------------------------------------------------------
+ * Direction        | Derived -> Base (Assignment)       | Base -> Derived (Assignment)
+ * Allowed Position | Return Types (Outputs)             | Parameter Types (Inputs)
+ * Real-world usage | IEnumerable<out T>, IReadOnlyList  | Action<in T>, IComparer<in T>
+ * ---------------------------------------------------------------------------------------
+ */
+#endregion
 #endregion
 #endregion

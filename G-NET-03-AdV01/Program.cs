@@ -98,5 +98,13 @@ public interface IRepository<T>
 }
 #endregion
 #endregion
+#region Q07: Struct Constraint Example
+// Restricts T to non-nullable value types only.
+public class ValueWrapper<T> where T : struct
+{
+    public T Value { get; set; }
+    public ValueWrapper(T value) => Value = value;
+}
+#endregion
 
 #endregion

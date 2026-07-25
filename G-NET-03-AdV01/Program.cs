@@ -204,5 +204,12 @@ public class GenericCounter<T>
     public static int Count;
 }
 #endregion
+#region Q19: Inheritance from Generic Classes
+// 1. Inherit with open generic parameters
+public class OpenDerived<T> : Container<T> { }
+
+// 2. Inherit with closed (concrete) generic type argument
+public class ClosedDerived : Container<string> { }
+#endregion
 #endregion
 #endregion

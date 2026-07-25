@@ -24,7 +24,6 @@ namespace AdvancedCSharpGenerics
 
     #endregion
     #region PART 01 - QUESTIONS 01 TO 05
-
     #region Q01: Generic Class Definition
     /*
      * Q1: What is a generic class? Why use generics?
@@ -38,4 +37,13 @@ namespace AdvancedCSharpGenerics
     #endregion
     
 }
+#region Q02: Generic Container<T>
+public class Container<T>
+{
+    private T _item = default!;
+
+    public void Add(T item) => _item = item;
+    public T Get() => _item;
+}
+#endregion
 #endregion

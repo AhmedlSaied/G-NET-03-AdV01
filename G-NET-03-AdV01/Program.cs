@@ -106,5 +106,12 @@ public class ValueWrapper<T> where T : struct
     public ValueWrapper(T value) => Value = value;
 }
 #endregion
+#region Q08: Class Constraint Example
+// Restricts T to reference types only.
+public class ReferenceWrapper<T> where T : class
+{
+    public T? Value { get; set; }
+}
+#endregion
 
 #endregion

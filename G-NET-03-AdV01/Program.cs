@@ -76,7 +76,7 @@ public static class Utility
         b = temp;
     }
 
-    #region Q05: FindMax<T> Method
+#region Q05: FindMax<T> Method
     public static T FindMax<T>(T a, T b) where T : IComparable<T>
     {
         return a.CompareTo(b) > 0 ? a : b;
@@ -84,6 +84,19 @@ public static class Utility
     #endregion
 }
 #endregion
+#region PART 01 - QUESTIONS 06 TO 12: INTERFACES & CONSTRAINTS
 
+#region Q06: Generic Interface IRepository<T>
+/*
+ * Generic Interface: Defines a type-safe contract using parameter placeholders.
+ */
+public interface IRepository<T>
+{
+    void Add(T entity);
+    T GetById(int id);
+    IEnumerable<T> GetAll();
+}
+#endregion
 #endregion
 
+#endregion

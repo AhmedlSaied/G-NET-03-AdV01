@@ -128,5 +128,12 @@ public class EntityProcessor<T> where T : IEntity
     public void Process(T entity) => Console.WriteLine($"Processing Entity #{entity.Id}");
 }
 #endregion
+#region Q11: Base Class Constraint Example
+// Requires T to inherit from a specific base class.
+public class BaseEntityManager<T> where T : BaseEntity
+{
+    public void Save(T entity) => Console.WriteLine($"Saving BaseEntity #{entity.Id}");
+}
+#endregion
 
 #endregion

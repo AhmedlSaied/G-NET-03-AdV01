@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AdvancedCSharpGenerics;
 
 namespace AdvancedCSharpGenerics
 {
@@ -118,6 +119,13 @@ public class ReferenceWrapper<T> where T : class
 public class EntityFactory<T> where T : new()
 {
     public T CreateInstance() => new T();
+}
+#endregion
+#region Q10: Interface Constraint Example
+// Requires T to implement a specific interface.
+public class EntityProcessor<T> where T : IEntity
+{
+    public void Process(T entity) => Console.WriteLine($"Processing Entity #{entity.Id}");
 }
 #endregion
 

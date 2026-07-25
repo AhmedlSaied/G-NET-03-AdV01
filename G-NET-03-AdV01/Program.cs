@@ -135,5 +135,16 @@ public class BaseEntityManager<T> where T : BaseEntity
     public void Save(T entity) => Console.WriteLine($"Saving BaseEntity #{entity.Id}");
 }
 #endregion
+#region Q12: Multiple Constraints Example
+// Combining multiple constraint rules on a single type parameter.
+public class Repository<T> : IRepository<T> where T : BaseEntity, IEntity, new()
+{
+    private readonly List<T> _data = new();
+
+    public void Add(T entity) => _data.Add(entity);
+    public T GetById(int id) => _data.Find(x => x.Id == id) ?? new T();
+    public IEnumerable<T> GetAll() => _data;
+}
+#endregion
 
 #endregion

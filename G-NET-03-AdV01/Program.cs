@@ -46,4 +46,21 @@ public class Container<T>
     public T Get() => _item;
 }
 #endregion
+#region Q03: Multiple Type Parameters & Pair<TKey, TValue>
+/*
+ * Multiple Type Parameters allow a class or method to handle more than one generic 
+ * type placeholder simultaneously (e.g., <TKey, TValue>).
+ */
+public class Pair<TKey, TValue>
+{
+    public TKey Key { get; set; }
+    public TValue Value { get; set; }
+
+    public Pair(TKey key, TValue value)
+    {
+        Key = key;
+        Value = value;
+    }
+}
+#endregion
 #endregion

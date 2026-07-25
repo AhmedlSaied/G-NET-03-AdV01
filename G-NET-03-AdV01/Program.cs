@@ -23,4 +23,19 @@ namespace AdvancedCSharpGenerics
     }
 
     #endregion
+    #region PART 01 - QUESTIONS 01 TO 05
+
+    #region Q01: Generic Class Definition
+    /*
+     * Q1: What is a generic class? Why use generics?
+     * - Generic Class: A class that allows defining placeholder type parameters (e.g., <T>) 
+     *   which are specified when the class is instantiated.
+     * - Benefits:
+     *   1. Type Safety: Prevents runtime casting errors by enforcing compile-time type checking.
+     *   2. Performance: Eliminates boxing and unboxing overhead when working with value types.
+     *   3. Reusability: Write logic once, apply to any data type without code duplication.
+     */
+    #endregion
+    
 }
+#endregion

@@ -211,5 +211,61 @@ public class OpenDerived<T> : Container<T> { }
 // 2. Inherit with closed (concrete) generic type argument
 public class ClosedDerived : Container<string> { }
 #endregion
+#region Q20: COMPLETE EXERCISE - CACHE<TKEY, TVALUE> WITH EXPIRATION
+
+public class CacheItem<TValue>
+{
+    public TValue Value { get; }
+    public DateTime ExpirationTime { get; }
+
+    public CacheItem(TValue value, TimeSpan timeToLive)
+    {
+        Value = value;
+        ExpirationTime = DateTime.UtcNow.Add(timeToLive);
+    }
+
+    public bool IsExpired => DateTime.UtcNow > ExpirationTime;
+}
+
+public class Cache<TKey, TValue> where TKey : notnull
+{
+    private readonly Dictionary<TKey, CacheItem<TValue>> _store = new();
+
+    public void Add(TKey key, TValue value, TimeSpan timeToLive)
+    {
+        _store[key] = new CacheItem<TValue>(value, timeToLive);
+    }
+
+    public bool Contains(TKey key)
+    {
+        if (!_store.TryGetValue(key, out var item))
+            return false;
+
+        if (item.IsExpired)
+        {
+            _store.Remove(key);
+            return false;
+        }
+
+        return true;
+    }
+
+    public TValue Get(TKey key)
+    {
+        if (Contains(key))
+        {
+            return _store[key].Value;
+        }
+
+        throw new KeyNotFoundException($"Key '{key}' was not found or has expired.");
+    }
+
+    public bool Remove(TKey key)
+    {
+        return _store.Remove(key);
+    }
+}
+
+#endregion
 #endregion
 #endregion
